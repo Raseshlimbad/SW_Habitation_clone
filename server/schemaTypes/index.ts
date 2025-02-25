@@ -1,6 +1,6 @@
-import { footerSchema } from "./schemas/footerSchema";
-import { headerSchema } from "./schemas/headerSchema";
+import documentTypes from "./documents";
+import globalTypes from "./global";
 
 export const schemaTypes = [
-    headerSchema, footerSchema
+     ...documentTypes, ...globalTypes
 ]

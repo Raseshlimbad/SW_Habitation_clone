@@ -1,21 +1,22 @@
-export interface Header {
+export interface HeaderType {
+  title: string;
     logo: {
       asset: {
         _ref: string;
         _type: "reference";
       };
     };
-    navigation: NavigationLink[];
-    ctaButton: CTAButton;
+    navItems: NavItems[];
+    ctaButton: CTAButton[];
   }
   
-  export interface NavigationLink {
+  export interface NavItems {
     label: string;
-    url: string;
+    path: string;
   }
   
   export interface CTAButton {
     label: string;
-    url: string;
+    path: string;
   }
   
