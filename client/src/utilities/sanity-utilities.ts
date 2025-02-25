@@ -108,4 +108,30 @@ export async function getBlogSectionFix(): Promise<BlogType[]> {
       return [];
     }
   }
+
+
+  export async function getAllBlogs(): Promise<BlogType[]> {
+    const query = `
+      *[_type == "blog"] | order(publishedAt desc) {
+        _id,
+        title,
+        slug,
+        blogThumbnail,
+        publishedAt,
+        readingTime,
+        author,
+        authorImage,
+        content
+      }
+    `;
+  
+    try {
+      const blogs: BlogType[] = await client.fetch(query);
+      return blogs;
+    } catch (error) {
+      console.error("Error fetching all blogs:", error);
+      return [];
+    }
+  }
+  
   
